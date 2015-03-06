@@ -1,0 +1,11 @@
+<h1>Sales Tax Report</h1>
+<%= form_remote_tag :url => {:action => 'calculate_salestax'}, :update => 'salestax' %>
+Last Day of Month:
+<%= toolbocks_date_select :report, :enddate, { :format => 'us' } %>
+<br/>
+  <%= submit_tag "Generate Report" %>
+<%= end_form_tag %>
+
+<div id="salestax">
+
+</div>

@@ -1,0 +1,18 @@
+<h2><%=h @help.name %></h2>
+<h4><%= @help.description %></h4>
+
+<% if @help.attachment %>
+<h3>Click the "Play" button below to view demo.</h3>
+<center>
+<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" WIDTH="800" HEIGHT="620" CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
+<PARAM NAME=movie VALUE="/images/<%= @help.attachment %>">
+<PARAM NAME=play VALUE=true>
+<PARAM NAME=loop VALUE=true>
+<PARAM NAME=quality VALUE=low>
+<EMBED SRC="/images/<%= @help.attachment %>" WIDTH=800 HEIGHT=620 quality=low loop=false TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+</EMBED>
+</OBJECT>
+</center>
+<% end %>
+
+<%= link_to 'Back', :action => 'list' %>

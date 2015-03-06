@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/dmrails/!svn/ver/9/app/views/configurations
+END
+list.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/dmrails/!svn/ver/3/app/views/configurations/list.rhtml
+END
+show.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/dmrails/!svn/ver/1/app/views/configurations/show.rhtml
+END
+_form.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/dmrails/!svn/ver/9/app/views/configurations/_form.rhtml
+END
+edit.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/dmrails/!svn/ver/9/app/views/configurations/edit.rhtml
+END
+new.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/dmrails/!svn/ver/9/app/views/configurations/new.rhtml
+END

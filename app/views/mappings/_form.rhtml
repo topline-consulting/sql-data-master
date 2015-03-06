@@ -1,0 +1,45 @@
+<%= error_messages_for 'mapping' %>
+
+<p><label for="mapping_manufacturer">Manufacturer</label><br/>
+<!-- collection_select(:mapping, :manufacturer, @makes, :make, :make) -->
+<%= text_field 'mapping', 'manufacturer' %>
+
+<div class='tooltip'>Choose the manufacturer name for this price file mapping.</div></p>
+
+<p><label for="mapping_description">Description</label><br/>
+<%= text_area 'mapping', 'description', :rows => 5, :cols => 30  %>
+<div class='tooltip'>Enter an optional description for this price file mapping.</div></p>
+
+<p><label for="mapping_created_at">Created at</label><br/>
+<%= datetime_select 'mapping', 'created_at'  %>
+<div class='tooltip'>Enter the date that the mapping was created.  The default is today.</div></p>
+
+<p><label for="mapping_active">Active</label><br/>
+<select id="mapping_active" name="mapping[active]"><option value="false">False</option><option value="true" selected>True</option></select>
+<div class='tooltip'>Use this field to activate or deactivate a mapping.</div></p>
+
+<p><label for="mapping_includes_decimals">Price Fields Contain Decimal Points?</label><br/>
+<select id="mapping_includes_decimals" name="mapping[includes_decimals]"><option value="false">False</option><option value="true" selected>True</option></select>
+<div class='tooltip'>Choose whether data file price fields already contain decimal points or not.</div></p>
+
+<p><label for="mapping_filetype">Filetype</label><br/>
+<%= select 'mapping', 'filetype', ["FIXEDLENGTH", "SPREADSHEET", "DELIMITED"]  %>
+<div class='tooltip'>Choose the file type for the incoming data.  Usually this is either fixed-length or delimited.</div></p>
+
+<div id="delimiter">
+  <% if @mapping %>
+    <% if @mapping.filetype == 'DELIMITED' %>
+      <%= render :partial => 'delimiter' %>
+    <% end %>
+  <% end %>
+</div>
+
+<p><label for="mapping_headings">Number of Rows for Column Headings</label><br/>
+<%= text_field 'mapping', 'headingrows', :size => 3  %>
+<div class='tooltip'>If the incoming file contains column headings, enter the number of rows used for those headings.  If no headings are used, leave the value of zero.</div></p>
+
+<%= observe_field "mapping_filetype",
+                  :update    => 'delimiter',
+                  :with    => "'delim=' + encodeURIComponent(value)" ,
+                  :url       => {:action=>'delimiter', :only_path => false} %>
+

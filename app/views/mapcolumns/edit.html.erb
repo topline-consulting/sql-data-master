@@ -1,0 +1,14 @@
+<h1>Edit Mapping Column</h1>
+
+<h2>Manufacturer: <%= @mapcolumn.mapping.manufacturer %></h2>
+
+<table>
+  <tr>
+    <td><%= button_to 'Show', :action => 'show', :id => @mapcolumn %></td>
+    <td><%= button_to 'Back', :action => 'list' %></td>
+  </tr>
+</table>
+
+<%= render :partial => 'form' %>
+
+

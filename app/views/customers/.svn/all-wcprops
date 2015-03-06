@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/dmrails/!svn/ver/5/app/views/customer
+END
+_customer_list.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/dmrails/!svn/ver/5/app/views/customer/_customer_list.rhtml
+END
+list.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/dmrails/!svn/ver/3/app/views/customer/list.rhtml
+END
+special_rate.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/dmrails/!svn/ver/1/app/views/customer/special_rate.rhtml
+END
+job_status.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/dmrails/!svn/ver/1/app/views/customer/job_status.rhtml
+END
+finance_charges.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/dmrails/!svn/ver/3/app/views/customer/finance_charges.rhtml
+END
+apply_special_rate.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/dmrails/!svn/ver/1/app/views/customer/apply_special_rate.rhtml
+END
+show.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/dmrails/!svn/ver/1/app/views/customer/show.rhtml
+END
+history.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/dmrails/!svn/ver/1/app/views/customer/history.rhtml
+END
+apply_finance_charges.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/dmrails/!svn/ver/1/app/views/customer/apply_finance_charges.rhtml
+END
+task_progress.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/dmrails/!svn/ver/1/app/views/customer/task_progress.rhtml
+END
+index.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/dmrails/!svn/ver/1/app/views/customer/index.rhtml
+END

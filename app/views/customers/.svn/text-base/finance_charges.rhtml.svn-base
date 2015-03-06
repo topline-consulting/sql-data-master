@@ -1,0 +1,16 @@
+<h1>Apply Customer Finance Charges</h1>
+
+<% form_tag('/customer/apply_finance_charges') do %>
+  <div id="updatearea">
+    <p>Days Overdue: <%= text_field :charges, :daysoverdue, :size => 4, :value => 30 %>
+      <div class='tooltip'>Enter the number of days after which an invoice is overdue.</div>
+    </p>
+    <p>Finance Charge Percentage: <%= text_field :charges, :percent, :size => 3, :value => 2.5 %>
+      <div class='tooltip'>Enter a whole number representing the finance charge percentage on the overdue amount (e.g. 10).</div>
+    </p>
+    <%= submit_tag "Apply Charges" %>
+    <div class='tooltip'>Click this button to start applying finance charges.  This process may take a long time!</div>
+  </div>
+<% end %>
+
+

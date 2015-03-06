@@ -1,0 +1,19 @@
+<h3>UPDATE STATUS: <%= session[:parts_job_status] %></h3><br/>
+
+  <% if !@progress %>
+    <p class="error">
+    Unable to retrieve job status.  Either no background process is running, or the 
+    last submitted job has completed.</p>
+  <% end %>
+
+  <% if session[:parts_job_status] == "COMPLETE" || !@progress %>
+  <% else %>
+    <h4>Applying Finance Charges...<img src="/images/progress.gif" width="20" height="20" /></h4>
+  <% end %>
+  
+  Processed Records: <%= session[:parts_total_records] %><br/>
+  <ul>
+  <li>Total created: <%= session[:parts_total_created] %></li>
+  <li>Total updated: <%= session[:parts_total_updated] %></li>
+  <li>Total errors: <%= session[:parts_total_errors] %></li>
+  </ul>

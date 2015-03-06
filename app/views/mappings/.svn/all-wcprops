@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/dmrails/!svn/ver/9/app/views/mappings
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/dmrails/!svn/ver/9/app/views/mappings/edit.html.erb
+END
+list.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/dmrails/!svn/ver/5/app/views/mappings/list.rhtml
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/dmrails/!svn/ver/9/app/views/mappings/index.html.erb
+END
+_delimiter.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/dmrails/!svn/ver/1/app/views/mappings/_delimiter.rhtml
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/dmrails/!svn/ver/5/app/views/mappings/new.html.erb
+END
+show.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/dmrails/!svn/ver/1/app/views/mappings/show.rhtml
+END
+_form.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/dmrails/!svn/ver/5/app/views/mappings/_form.rhtml
+END
+edit.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/dmrails/!svn/ver/1/app/views/mappings/edit.rhtml
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/dmrails/!svn/ver/9/app/views/mappings/show.html.erb
+END
+new.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/dmrails/!svn/ver/5/app/views/mappings/new.rhtml
+END

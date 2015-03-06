@@ -1,0 +1,23 @@
+<%= error_messages_for 'mapcolumn' %>
+
+<!-- hidden_field :mapcolumn, :mapping_id, :value => params[:mapping_id] -->
+<%= collection_select 'mapcolumn', 'mapping_id', Mapping.all, :id, :description  %>
+
+<!--[form:mapcolumn]-->
+<p><label for="mapcolumn_columnposition">Column Order</label><br/>
+<%= text_field 'mapcolumn', 'columnposition', :size => 3  %>
+<div class='tooltip'>Enter the column number of the field within the price file (e.g. enter 2 if the this is the second column).</div></p>
+
+<p><label for="mapcolumn_columnname">Column Name</label><br/>
+<%= select 'mapcolumn', 'columnname', Part.column_names  %>
+<div class='tooltip'>Choose the field that will receive the incoming data. If the field is not in the list, you cannot load that data with this system.</div></p>
+
+<p><label for="mapcolumn_startposition">Starting Position</label><br/>
+<%= text_field 'mapcolumn', 'startposition', :size => 3  %>
+<div class='tooltip'>For fixed-length files, enter the starting character number of this data field within the incoming row of data.  Remember, the first position in a row is zero, not one.</div></p>
+
+<p><label for="mapcolumn_endposition">Ending Position</label><br/>
+<%= text_field 'mapcolumn', 'endposition', :size => 3  %>
+<div class='tooltip'>For fixed-length files, enter the ending character number of the data field within the incoming row of data.  This should equal the starting position number plus the length of the field.</div></p>
+<!--[eoform:mapcolumn]-->
+

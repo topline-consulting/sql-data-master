@@ -1,0 +1,14 @@
+<h1>Editing mapping</h1>
+<table>
+  <tr>
+    <td><%= button_to 'Show', :action => 'show', :id => @mapping %></td>
+    <td><%= button_to 'Back', :action => 'list' %></td>
+  </tr>
+</table>
+
+<%= start_form_tag :action => 'update', :id => @mapping %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Save' %>
+<%= end_form_tag %>
+
+

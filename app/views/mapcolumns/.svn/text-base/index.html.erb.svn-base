@@ -1,0 +1,5 @@
+<h1>Listing mapcolumns</h1>
+
+<%= render :partial => 'mapitems' %>
+
+<%= link_to 'New mapcolumn', new_mapcolumn_path %>

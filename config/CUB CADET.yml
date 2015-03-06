@@ -1,0 +1,22 @@
+format: FIXEDLENGTH
+header_rows: 0
+
+partnumber:
+  offset: 0
+  length: 16
+
+description:
+  offset: 16
+  length: 20
+  
+listprice:
+  offset: 36
+  length: 8
+  
+cost:
+  offset: 44
+  length: 8
+  
+notes:
+  offset: 70
+  length: 20

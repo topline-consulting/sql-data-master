@@ -1,0 +1,21 @@
+format: DELIMITED
+delimiter: ","
+header_rows: 2
+includes_decimals: TRUE
+
+partnumber:
+  column: 2
+
+description:
+  column: 3
+
+notes:
+  column: 4
+  
+listprice:
+  column: 9
+  
+cost:
+  column: 12
+
+

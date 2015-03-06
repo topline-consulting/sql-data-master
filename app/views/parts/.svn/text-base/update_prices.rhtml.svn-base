@@ -1,0 +1,13 @@
+<h1>Price Update</h1>
+
+<h2>for <%= params[:priceupdate][:manufacturer].capitalize %></h2>
+
+Background Job Submitted with Key: <%= session[:jobkey] %><br/><br/>
+
+<%= periodically_call_remote :url => {:action => 'task_progress'},
+    :frequency => 1,
+    :update => 'progress' %>
+
+<div id="progress">
+  <h3>Updating Price Data...<img src="/images/progress.gif" width="20" height="20" /></h3>
+</div>

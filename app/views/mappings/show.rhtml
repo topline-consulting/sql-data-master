@@ -1,0 +1,20 @@
+<h1>Display File Mapping</h1>
+<table>
+  <tr>
+    <td><%= button_to 'Edit', :action => 'edit', :id => @mapping %></td>
+    <td><%= button_to 'Back', :action => 'list' %></td>
+  </tr>
+</table>
+
+<% for column in Mapping.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @mapping.send(column.name) %>
+</p>
+<% end %>
+
+<h2>Mapping Columns (<%= link_to 'new column', :controller => 'mapcolumns', :action => 'new', :mapping_id => @mapping.id %>)</h2>
+
+<%= render :partial => 'mapcolumns/mapitems' %>
+
+
+

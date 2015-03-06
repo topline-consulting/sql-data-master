@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Topline Data Master: <%= controller.action_name %></title>
+    <%= stylesheet_link_tag "dmrails" %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'tooltips' %>
+    <script type="text/javascript">
+      Tooltip.showEvent = new Array("mouseover", "focus");
+      Tooltip.hideEvent = new Array("mouseout", "blur");
+    </script>
+  </head>
+  <body>
+    <div id="page">
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3 onclick="Effect.toggle('parts_links', 'Blind')">Parts</h3>
+            <ul class="links" id="parts_links" style="display: none">
+              <li><%= link_to 'Parts List', :controller => 'parts' %></li>
+              <li><%= link_to 'Price Update', :controller => 'parts', :action => 'price_update' %></li>
+              <li><%= link_to "Price Update Status", :controller => 'parts', :action => 'job_status' %></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3 onclick="Effect.toggle('customers_links', 'Blind')">Customers</h3>
+            <ul class="links" id="customers_links" style="display: none">
+              <li><%= link_to 'Customer List', :controller => 'customer' %></li>
+              <li><%= link_to 'Customer Equipment List', :controller => 'customer', :action => 'history' %></li>
+              <li><%= link_to 'Finance Charges', :controller => 'customer', :action => 'finance_charges' %></li>
+              <li><%= link_to "Finance Charge Status", :controller => 'customer', :action => 'job_status' %></li>
+            </ul>
+          </li>
+          
+          <li>
+            <h3 onclick="Effect.toggle('configuration_links', 'Blind')">Configuration</h3>
+            <ul class="links" id="configuration_links" style="display: none">
+              <li><%= link_to 'Settings', :controller => 'configurations' %></li>
+              <li><%= link_to 'File Maps', :controller => 'mappings', :action => 'list' %></li>
+            </ul>
+          </li>      
+          <li>
+            <h3 onclick="Effect.toggle('help_links', 'Blind')">Help</h3>
+            <ul class="links" id="help_links" style="display: none">
+              <li><%= link_to 'Help', :controller => 'helps' %></li>
+            </ul>
+          </li>     
+        </ul>
+      </div>
+
+      <div id="content">
+        <div id="header">
+          <h1>Topline Data Master</h1>
+          <h2><%= ENV['RAILS_ENV'].upcase %></h2>
+          <% if session[:employee] %>
+            <%= link_to 'Log Out', :controller => 'access', :action => 'logout' %>
+          <% end %>
+        </div>
+        
+    		<div id="main">
+    		  <% if flash[:notice] %>
+    		      <p class="error"><%= flash[:notice] %></p>
+    		  <% end %>
+              <%= @content_for_layout %>
+    		</div>
+      </div>
+      
+      <div id="footer">&nbsp;</div>
+    </div>
+  </body>
+</html>

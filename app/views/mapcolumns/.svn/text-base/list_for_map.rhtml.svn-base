@@ -1,0 +1,11 @@
+<h1>Listing mapcolumns</h1>
+
+
+<%= render :partial => 'mapitems' %>
+
+<%= link_to 'Previous page', { :page => @mapcolumn_pages.current.previous } if @mapcolumn_pages.current.previous %>
+<%= link_to 'Next page', { :page => @mapcolumn_pages.current.next } if @mapcolumn_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New mapcolumn', :action => 'new', :mapping_id => params[:mapping_id] %>

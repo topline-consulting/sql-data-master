@@ -1,0 +1,3 @@
+<h1>Customers</h1>
+<%= link_to 'Show All Customers', :controller => 'customers' %> |
+<%= link_to 'Apply Finance Charges', :controller => 'customers', :action => 'finance_charges' %>

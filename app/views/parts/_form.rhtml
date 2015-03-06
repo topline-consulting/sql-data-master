@@ -1,0 +1,67 @@
+<%= error_messages_for 'part' %>
+
+<!--[form:part]-->
+<p><label for="part_partnumber">Partnumber</label><br/>
+<%= text_area 'part', 'partnumber'  %></p>
+
+<p><label for="part_description">Description</label><br/>
+<%= text_area 'part', 'description'  %></p>
+
+<p><label for="part_unit">Unit</label><br/>
+<%= text_field 'part', 'unit'  %></p>
+
+<p><label for="part_listprice">Listprice</label><br/>
+<%= text_field 'part', 'listprice'  %></p>
+
+<p><label for="part_sellprice">Sellprice</label><br/>
+<%= text_field 'part', 'sellprice'  %></p>
+
+<p><label for="part_lastcost">Lastcost</label><br/>
+<%= text_field 'part', 'lastcost'  %></p>
+
+<p><label for="part_priceupdate">Priceupdate</label><br/>
+<%= date_select 'part', 'priceupdate'  %></p>
+
+<p><label for="part_weight">Weight</label><br/>
+<%= text_field 'part', 'weight'  %></p>
+
+<p><label for="part_onhand">Onhand</label><br/>
+<%= text_field 'part', 'onhand'  %></p>
+
+<p><label for="part_notes">Notes</label><br/>
+<%= text_area 'part', 'notes'  %></p>
+
+<p><label for="part_makemodel">Makemodel</label><br/>
+<select id="part_makemodel" name="part[makemodel]"><option value="false" selected>False</option><option value="true">True</option></select></p>
+
+<p><label for="part_assembly">Assembly</label><br/>
+<select id="part_assembly" name="part[assembly]"><option value="false" selected>False</option><option value="true">True</option></select></p>
+
+<p><label for="part_alternate">Alternate</label><br/>
+<select id="part_alternate" name="part[alternate]"><option value="false" selected>False</option><option value="true">True</option></select></p>
+
+<p><label for="part_rop">Rop</label><br/>
+<%= text_field 'part', 'rop'  %></p>
+
+<p><label for="part_bin">Bin</label><br/>
+<%= text_area 'part', 'bin'  %></p>
+
+<p><label for="part_obsolete">Obsolete</label><br/>
+<select id="part_obsolete" name="part[obsolete]"><option value="false" selected>False</option><option value="true">True</option></select></p>
+
+<p><label for="part_bom">Bom</label><br/>
+<select id="part_bom" name="part[bom]"><option value="false" selected>False</option><option value="true">True</option></select></p>
+
+<p><label for="part_image">Image</label><br/>
+<%= text_area 'part', 'image'  %></p>
+
+<p><label for="part_drawing">Drawing</label><br/>
+<%= text_area 'part', 'drawing'  %></p>
+
+<p><label for="part_microfiche">Microfiche</label><br/>
+<%= text_area 'part', 'microfiche'  %></p>
+
+<p><label for="part_avgcost">Avgcost</label><br/>
+<%= text_field 'part', 'avgcost'  %></p>
+<!--[eoform:part]-->
+

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/dmrails/!svn/ver/5/app/views/parts
+END
+list.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/dmrails/!svn/ver/5/app/views/parts/list.rhtml
+END
+job_status.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/dmrails/!svn/ver/1/app/views/parts/job_status.rhtml
+END
+show.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/dmrails/!svn/ver/1/app/views/parts/show.rhtml
+END
+_form.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/dmrails/!svn/ver/1/app/views/parts/_form.rhtml
+END
+price_update.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/dmrails/!svn/ver/3/app/views/parts/price_update.rhtml
+END
+task_progress.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/dmrails/!svn/ver/1/app/views/parts/task_progress.rhtml
+END
+update_prices.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/dmrails/!svn/ver/1/app/views/parts/update_prices.rhtml
+END

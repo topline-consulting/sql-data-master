@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Column Order</th>
+    <th>Column Name</th>
+    <th>Starting Position</th>
+    <th>Ending Position</th>
+  </tr>
+  <% rownum = 0 %>
+<% for mapcolumn in @mapcolumns %>
+  <% rownum = 1- rownum %>
+  <tr class="listrow<%= rownum %>">
+    <td><%= mapcolumn.columnposition %></td>
+    <td><%= link_to mapcolumn.columnname, :controller => 'mapcolumns', :action => 'edit', :id => mapcolumn, :mapping_id => mapcolumn.mapping_id %></td>
+    <td><%= mapcolumn.startposition %></td>
+    <td><%= mapcolumn.endposition %></td>
+    <td><%= link_to 'Destroy', {:controller => 'mapcolumns', :action => 'destroy', :id => mapcolumn, :mapping_id => mapcolumn.mapping_id }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>

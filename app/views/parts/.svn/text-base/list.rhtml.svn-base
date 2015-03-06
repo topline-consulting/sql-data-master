@@ -1,0 +1,30 @@
+<h1>Parts List</h1>
+
+<table>
+  <tr class="listheading">
+    <th>Part Number</th>
+    <th>Description</th>
+    <th>List Price</th>
+    <th>Sell Price</th>
+    <th>Last Cost</th>
+    <th>On Hand</th>
+    <th>Last Update</th>
+    
+  </tr>
+  
+  <% rownum = 0 %>
+  
+<% for part in @parts %>
+  <% rownum = 1- rownum %>
+  <tr class="listrow<%= rownum %>">
+    <td><%= link_to part.partnumber, :action => 'show', :id => part %></td>
+    <td><%= part.description %></td>
+    <td><%= part.listprice %></td>
+    <td><%= part.sellprice %></td>
+    <td><%= part.lastcost %></td>
+    <td><%= part.onhand %></td>
+    <td><%= part.priceupdate %></td>
+  </tr>
+<% end %>
+</table>
+

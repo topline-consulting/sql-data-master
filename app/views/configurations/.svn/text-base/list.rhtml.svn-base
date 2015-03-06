@@ -1,0 +1,21 @@
+<h1>Configuration Settings</h1>
+
+<%= link_to 'New Configuration Setting', :action => 'new' %>
+
+<%= will_paginate @mappings %>
+
+<table>
+  <tr>
+    <th>Setting</th>
+    <th>Value</th>
+  </tr>
+  <% rownum = 0 %>
+<% for configuration in @configurations %>
+  <% rownum = 1 - rownum %>
+  <tr class="listrow<%= rownum %>">
+    <td><%= link_to configuration.name, :action => 'show', :id => configuration %></td>
+    <td><%= link_to configuration.value, :action => 'edit', :id => configuration %></td>
+  </tr>
+<% end %>
+</table>
+

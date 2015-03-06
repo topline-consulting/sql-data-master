@@ -1,0 +1,39 @@
+<table>
+  <tr class="listheading">
+    <th>Customer Number</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Email</th>    
+  </tr>
+  
+  <% rownum = 0 %>
+  
+<% for customer in @customers %>
+  <% rownum = 1- rownum %>
+  <tr class="listrow<%= rownum %>">
+    <td><%= link_to customer.customernumber, :action => 'show', :id => customer %></td>
+    <td><%= customer.name %><br/><%= customer.contact %></td>
+    <td>
+      <% if customer.addresses[0] %>
+        <% if customer.addresses[0].address1 %>
+          <%= customer.addresses[0].address1 %><br/>
+        <% end %>
+        <% if !customer.addresses[0].address2 %>
+          <%= customer.addresses[0].address2 %><br/>
+        <% end %>
+        <% if customer.addresses[0].city && customer.addresses[0].state && customer.addresses[0].zipcode %>
+        <%= customer.addresses[0].city %> <%= customer.addresses[0].state %> <%= customer.addresses[0].zipcode %>
+        <% end %>
+      <% end %>
+    </td>
+    <td><%= customer.phone %></td>
+    <td><%= customer.email %></td>
+    <% if @function == 'equipment' %>
+    <td><%= link_to 'Equipment', :controller => 'customer', :action => 'history', :id => customer.id %></td>
+    <% elsif @function == 'financecharge' %>
+    <td><%= link_to 'Apply Special Rate', :controller => 'customer', :action => 'special_rate', :id => customer.id %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>

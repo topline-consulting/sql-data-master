@@ -1,0 +1,148 @@
+desc "Price Update"
+
+task :price_update => :environment do
+
+  @salestax = Chart.find_by_accno(ACCOUNTING["salestax"].to_s).id
+  @manufacturer = ENV["MANUFACTURER"].to_s
+  @markup = ENV["MARKUP"].to_f / 100  
+  @total_records = 0
+  @total_created = 0
+  @total_updated = 0
+  @total_errors = 0
+    
+  CONFIG = YAML.load_file("config/#{@manufacturer.to_s}.yml")
+  
+  if CONFIG["format"] == 'FIXEDLENGTH' 
+  
+    @pricefile = File.open(ENV["PRICEFILE"], 'r')
+    
+      @pricefile.each {|currentline|
+      
+        currentline.gsub!('"', ' ')
+        
+        @total_records += 1 
+        
+        if CONFIG["header_rows"].to_i < @total_records
+        
+          part_in = currentline.slice(CONFIG["partnumber"]["offset"], CONFIG["partnumber"]["length"]).strip
+          
+          newpart = false
+          if @part = Part.find_by_partnumber(part_in.to_s)
+            @total_updated += 1
+            @part.send "set_id", @part.id
+          else
+            @part = Part.new
+            @total_created += 1
+            newpart = true
+          end
+          
+          @part.send "set_partnumber", part_in
+
+          begin
+          price_in = currentline.slice(CONFIG["listprice"]["offset"], CONFIG["listprice"]["length"]).strip
+          @part.send "set_listprice", price_in
+          rescue
+          end
+          
+          begin
+          cost_in = currentline.slice(CONFIG["cost"]["offset"], CONFIG["cost"]["length"]).strip
+          @part.send "set_lastcost", cost_in
+          rescue
+          end
+          
+          begin
+          description_in = currentline.slice(CONFIG["description"]["offset"], CONFIG["description"]["length"]).strip
+          @part.send "set_description", description_in
+          rescue
+          end
+          
+          begin
+          notes_in = currentline.slice(CONFIG["notes"]["offset"], CONFIG["notes"]["length"]).strip
+          @part.send "set_notes", notes_in
+          rescue
+          end
+          
+          begin
+          if @part.listprice && @markup
+            @part.sellprice = @part.listprice + (@part.listprice * @markup)
+            @part.send "set_sellprice", @part.sellprice 
+          end
+          rescue
+          end
+          
+          if @part.partnumber
+            @part.save!
+            if newpart
+              Part.find_by_sql("insert into makemodel values ('" + @part.id.to_s + "','" + @manufacturer + "');")
+              Part.find_by_sql("insert into partstax values ('" + @part.id.to_s + "','" + @salestax + "');")
+            end
+          else
+            @total_errors += 1
+          end
+          
+        end 
+      }
+  
+  elsif CONFIG["format"] == 'DELIMITED'
+      
+    require 'csv'
+
+    CSV.open(ENV["PRICEFILE"], 'r').each do |row|
+    
+      row.inspect
+     
+      @total_records += 1
+      
+      if CONFIG["header_rows"] < @total_records
+        
+        newpart = false
+        if @part = Part.find_by_partnumber(row[1])
+          @total_updated += 1
+        else
+          @part = Part.new
+          @total_created += 1
+          newpart = true
+        end
+        
+        current_cell = 0
+        row.each { |cell| 
+          current_cell += 1
+          
+          if CONFIG["listprice"]["column"] == current_cell
+            if CONFIG["includes_decimals"] == 'FALSE'
+              @part.listprice = cell / 100
+            end
+            if @part.listprice && @markup
+              @part.sellprice = @part.listprice + (@part.listprice * @markup)
+            end              
+            @part.send "set_listprice", cell
+          elsif CONFIG["cost"]["column"] == current_cell
+            if CONFIG["includes_decimals"] == 'FALSE'
+              @part.lastcost = cell / 100
+            end              
+            @part.send "set_lastcost", cell
+          elsif CONFIG["description"]["column"] == current_cell
+            @part.send "set_description", cell
+          elsif CONFIG["notes"]["column"] == current_cell
+            @part.send "set_notes", cell            
+          else
+          
+          end
+          
+        }
+        
+        if @part.partnumber
+          @part.save!
+          if newpart
+            Part.find_by_sql("insert into makemodel values ('" + @part.id.to_s + "','" + @manufacturer + "');")
+            Part.find_by_sql("insert into partstax values ('" + @part.id.to_s + "','" + @salestax + "');")
+          end 
+        else
+          @total_errors += 1
+        end
+        
+      end
+    end
+  end
+  
+end

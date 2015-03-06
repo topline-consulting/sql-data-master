@@ -1,0 +1,20 @@
+<h1>Help Topics</h1>
+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>Description</th>
+    <th>Demo</th>
+  </tr>
+  <% rownum = 0 %>
+<% for help in @helps %>
+  <% rownum = 1 - rownum %>
+  <tr class="listrow<%= rownum %>">
+    <td><%= link_to help.name, :action => 'show', :id => help %></td>
+    <td><%= help.description %></td>
+    <td><%= link_to "DEMO", :action => 'show', :id => help %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New help', :action => 'new' %>

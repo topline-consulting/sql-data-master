@@ -1,0 +1,30 @@
+<h1>Apply Special Finance Charge Rate for Customer</h1>
+Customer Name:
+<%= text_field :customer, :name %>
+<br/>
+
+<%= observe_field 'customer_name', 
+  :update => 'customer_list',
+  :frequency => 1,
+  :url    => {:action => 'filtered_list'},
+  :with   => "'function=financecharge' + '&customer_name=' + encodeURIComponent(value)"
+%>
+
+<div id="customer_list">
+<% if @customer %>
+
+<%= form_tag({ :action => 'apply_special_rate' }) %>
+  <div id="updatearea">
+    <p>Customer: <%= @customer.name %>
+      <%= hidden_field 'financecharge', 'customer_id', :value => @customer.id %>
+    </p>
+    <p>Finance Charge Percentage: <%= text_field :financecharge, :percentage, :size => 3, :value => 5 %>
+      <div class='tooltip'>Enter a whole number representing the special finance charge percentage on the overdue amount for this customer (e.g. 10).</div>
+    </p>
+    <%= submit_tag "Apply Charges" %>
+    <div class='tooltip'>Click this button to apply the special finance charge rate.</div>
+  </div>
+<%= end_form_tag %>
+
+<% end %>
+</div>

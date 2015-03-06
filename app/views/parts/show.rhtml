@@ -1,0 +1,6 @@
+<h1>Display Part</h1>
+<h2><%= @part.partnumber %></h2>
+<p><%= @part.description %></p>
+<h3>Price: $<%= @part.sellprice %></h3>
+
+<%= button_to 'Back', :action => 'list' %>

@@ -1,0 +1,5 @@
+<% form_tag :controller => 'access', :action => 'login' do %>
+  <label>Please enter the administrator password...</label>
+  <%= password_field 'admin', 'password' %>
+  <%= submit_tag 'Login' %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Display Customer</h1>
+<%= @customer.name %><br/>
+<%= @customer.address1 %><br/>
+<%= @customer.city %> <%= @customer.state %> <%= @customer.zipcode %><br/>
+
+<%= button_to 'History', :controller => 'customer', :action => 'history', :id => @customer.id %>
+
+<%= button_to 'Back', :action => 'list' %>

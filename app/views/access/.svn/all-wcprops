@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/dmrails/!svn/ver/9/app/views/access
+END
+index.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/dmrails/!svn/ver/9/app/views/access/index.rhtml
+END
+login.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/dmrails/!svn/ver/1/app/views/access/login.rhtml
+END
+logout.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/dmrails/!svn/ver/1/app/views/access/logout.rhtml
+END

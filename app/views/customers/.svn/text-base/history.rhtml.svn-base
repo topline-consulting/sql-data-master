@@ -1,0 +1,47 @@
+<h1>Customer Equipment List</h1>
+Customer Name:
+<%= text_field :customer, :name %>
+<br/>
+
+<%= observe_field 'customer_name', 
+  :update => 'customer_list',
+  :frequency => 1,
+  :url    => {:action => 'filtered_list'},
+  :with   => "'function=equipment' + '&customer_name=' + encodeURIComponent(value)"
+%>
+
+<div id="customer_list">
+<% if @customer %>
+
+  <table>
+    <tr class="listheading">
+      <th>Order Number</th>
+      <th>Date</th>
+      <th>Part Number</th>
+      <th>Serial Number</th>
+      <th>Description</th>
+    </tr>
+
+    <% rownum = 0 %>
+
+    <% for equipment in @customer.equipment %>
+      <% part = Part.find_by_partnumber(equipment[2]) %>
+      <% rownum = 1- rownum %>
+        <tr class="listrow<%= rownum %>">
+          <td><%= equipment[0] %></td>
+          <td><%= equipment[1] %></td>
+          <td>
+            <%= link_to_function part.partnumber, "Element.toggle('part_details_" + equipment[3].to_s + "')" %>
+            <div id="part_details_<%= equipment[3].to_s %>" style="display:none">
+              <%= part.description %><br/>
+              Price:   $<%= part.sellprice %><br/>
+              On Hand: <%= part.onhand %><br/>
+            </div>          
+          </td>
+          <td><%= equipment[3] %></td>
+          <td><%= equipment[4] %></td>
+        </tr>
+    <% end %>
+  </table>
+<% end %>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title><%= controller.action_name %></title>
+    <%= stylesheet_link_tag "sql" %>
+    <%= javascript_include_tag "application" %>
+
+  </head>
+  <body>
+    <div id="content">
+      <div id="header">
+        <h1 class=listtop>Central Maine Equipment</h1>
+        <h2 class=listheading>You are working in <%= ENV['RAILS_ENV'].upcase %>, please make a backup!</h2>
+      </div>
+      <div id="main">
+        <% if flash[:notice] %>
+          <p class="error"><%= flash[:notice] %></p>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

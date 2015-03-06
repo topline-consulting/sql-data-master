@@ -1,0 +1,31 @@
+<h1>Price List Update</h1>
+<p>
+  All files must be either fixed-length (generally TXT file extensions) or comma-separated values (CSV file extensions).
+  See the <%= link_to "Help", :controller => 'helps' %> area for more information.
+</p>
+
+<% form_tag('/parts/update_prices', :multipart => true) do %>
+
+  <div id="updatearea">
+
+    <p>Make: <%= select(:priceupdate, :manufacturer, @makes) %>
+      <div class='tooltip'>Choose the manufacturer name associated with the price file you want to load.</div>
+    </p>
+
+    <p>File: 
+      <%= file_field_tag "pricefile" %>
+      <div class='tooltip'>Use the "Browse" button to find your manufacturer's price file.</div>
+    </p>
+
+    <p>Markup: <%= text_field_tag "markup", :size => 3 %>
+      <div class='tooltip'>Enter a whole number representing the markup percentage over manufacturer's list price (e.g. 10).</div>
+    </p>
+
+    <%= submit_tag "Update Prices", :onclick => "Element.show('progress'); Element.hide('updatearea')" %>
+
+    <div class='tooltip'>Click this button to start the price update.  This process may take a long time!</div>
+  </div>
+  
+<% end %>
+
+

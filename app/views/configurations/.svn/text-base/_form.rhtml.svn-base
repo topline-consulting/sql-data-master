@@ -1,0 +1,17 @@
+<% form_for @configuration do |f| %>
+
+  <%= error_messages_for 'configuration' %>
+
+  <% if controller.action_name == 'edit' %>
+    <label><%= @configuration.name.upcase %></label>
+  <% else %>
+    <p><label for="configuration_name">Name</label><br/>
+    <%= f.text_field :name  %></p>
+  <% end %>
+  <p><label for="configuration_value">Value</label><br/>
+  <%= f.text_field :value  %></p>
+
+  <%= submit_tag "Save" %>
+  
+<% end %>
+

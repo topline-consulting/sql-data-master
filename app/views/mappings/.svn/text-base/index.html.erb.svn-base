@@ -1,0 +1,24 @@
+<h1>Manufacturer Price File Mappings</h1>
+<p>All files must be either fixed-length (generally TXT file extensions) or comma-separated values (CSV file extensions).</p>
+<%= link_to 'New mapping', :action => 'new' %>
+
+<table>
+  <tr>
+    <th>Manufacturer</th>
+    <th>Description</th>
+    <th>Created</th>
+    <th>By</th>
+  </tr>
+  <% rownum = 0 %>
+<% for mapping in @mappings %>
+  <% rownum = 1- rownum %>
+  <tr class="listrow<%= rownum %>">
+    <td><%= link_to mapping.manufacturer, mapping_path(mapping) %></td>
+    <td><%= mapping.description %></td>
+    <td><%= mapping.created_at %></td>
+    <td><%= mapping.created_by %></td>
+    <td><%= link_to "Destroy", mapping_path(mapping), :confirm => "Are you sure", :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
