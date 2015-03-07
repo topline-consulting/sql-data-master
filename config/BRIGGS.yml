@@ -1,20 +1,45 @@
+# Briggs and Stratton Price File Definition
+# File name must match the field value in Makemodel.makes
+
+# file format, DELIMITED vs. FIXEDLENGTH
 format: DELIMITED
+
+# for delimited file formats, specify the delimiter
 delimiter: ","
+
+# If file contains header rows (column headers), specify how many
 header_rows: 2
+
+# Prices include decimals in the value (vs implied decimal places)?
 includes_decimals: TRUE
 
+# COLUMNS
+# For delimited files, specify the column number
+#   partnumber:
+#     column: 2
+
+# For fixed length files, specify OFFSET and LENGTH number of chars
+#   partnumber:
+#     offset: 0
+#     length: 16
+
+# Specify part number column
 partnumber:
   column: 2
 
+# Specify part description column
 description:
   column: 3
 
+# Specify notes column
 notes:
   column: 4
   
+# Specify list price column
 listprice:
   column: 9
   
+# Specify cost column
 cost:
   column: 12
 

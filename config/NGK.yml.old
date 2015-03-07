@@ -1,4 +1,4 @@
-# Walbro Price File Definition
+# NGK Price File Definition
 # File name must match the field value in Makemodel.makes
 
 # file format, DELIMITED vs. FIXEDLENGTH
@@ -11,7 +11,7 @@ format: FIXEDLENGTH
 header_rows: 19
 
 # Prices include decimals in the value (vs implied decimal places)?
-# includes_decimals: TRUE
+includes_decimals: TRUE
 
 # COLUMNS
 # For delimited files, specify the column number

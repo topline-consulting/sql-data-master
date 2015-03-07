@@ -1,22 +1,49 @@
+# Zama Price File Definition
+# File name must match the field value in Makemodel.makes
+
+# file format, DELIMITED vs. FIXEDLENGTH
 format: FIXEDLENGTH
+
+# for delimited file formats, specify the delimiter
+# delimiter: ","
+
+# If file contains header rows (column headers), specify how many
 header_rows: 19
 
+# Prices include decimals in the value (vs implied decimal places)?
+#includes_decimals: TRUE
+
+# COLUMNS
+# For delimited files, specify the column number
+#   partnumber:
+#     column: 2
+
+# For fixed length files, specify OFFSET and LENGTH number of chars
+#   partnumber:
+#     offset: 0
+#     length: 16
+
+# Specify part number column
 partnumber:
   offset: 4
   length: 20
 
+# Specify part description column
 description:
   offset: 24
   length: 30
   
+# Specify list price column
 listprice:
   offset: 54
   length: 8
   
+# Specify cost column
 cost:
   offset: 70
   length: 8
   
+# Specify notes column
 notes:
   offset: 103
   length: 20

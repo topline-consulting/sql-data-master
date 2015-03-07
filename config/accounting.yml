@@ -1,4 +1,13 @@
+# Account numbers using when creating/updating product records
+
+# sales tax GL account
 salestax: 2150
+
+# inventory GL account
 inventory: 1540
+
+# sales GL account
 sales: 4040
+
+# Cost of goods sold GL account
 cogs: 5040
